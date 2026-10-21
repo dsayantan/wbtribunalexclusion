@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ECI seeks to remove half the Bengal voters judges cleared</title>
+<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/public-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="side">
+      <p class="byline">The Wire &middot; Part One of a two-part investigation</p>
+      <h1>ECI seeks to remove half the Bengal voters judges cleared</h1>
+      <p class="dek">The Election Commission has appealed against 14.76 lakh voters whom judicial officers found eligible in the SIR. The weight falls hardest on the Muslim-majority border seats of Malda, Murshidabad and Uttar Dinajpur.</p>
+      <div class="figs">
+        <div class="fig"><b id="fCleared"></b><span>voters cleared by judges in the records</span></div>
+        <div class="fig key"><b id="fApp"></b><span>appealed against by the ECI</span></div>
+        <div class="fig"><b id="fDec"></b><span>appeals decided so far</span></div>
+      </div>
+      <fieldset>
+        <legend class="q">Shade the map by</legend>
+        <div class="seg" id="metric">
+          <label><input type="radio" name="m" value="pr" checked><span>Share of all voters</span></label>
+          <label><input type="radio" name="m" value="app"><span>Number of appeals</span></label>
+          <label><input type="radio" name="m" value="pa"><span>Share of cleared voters</span></label>
+          <label><input type="radio" name="m" value="mi"><span>Minority population</span></label>
+        </div>
+      </fieldset>
+      <div class="search">
+        <label for="q">Find a constituency</label>
+        <input id="q" list="seatlist" placeholder="Type a seat name, e.g. Sujapur" autocomplete="off">
+        <datalist id="seatlist"></datalist>
+      </div>
+    </div>
+    <div class="mapbox">
+      <svg id="map" role="img" aria-label="Map of West Bengal's 294 assembly constituencies shaded by ECI appeals against voters cleared by judges"></svg>
+      <div class="legend" id="legend"></div>
+      <div class="panel" id="panel" aria-live="polite"></div>
+      <p class="cap">Each shape is an assembly constituency, outlined by district. The stronger the red, the heavier the burden. Select a seat to see its numbers.</p>
+    </div>
+  </div>
+
+  <section class="more">
+    <h2>Same rate, very different weight</h2>
+    <p>The ECI appealed against roughly half of the voters judges cleared, whatever the make-up of the seat. But judges cleared far more people in Muslim-majority seats, so the appeals add up to a much larger share of their voters.</p>
+    <div class="pair">
+      <div><h3>Appeals as a share of all voters</h3><div id="bandA"></div></div>
+      <div><h3>Share of cleared voters appealed against</h3><div id="bandB"></div></div>
+    </div>
+    <p class="cap">Seats grouped by minority share of the population. Three Darjeeling hill seats have no minority figure and are left out.</p>
+  </section>
+
+  <section class="more">
+    <h2>Against the judges' own verdicts</h2>
+    <p>Judges marked 27.16 lakh voters not eligible, 45% of everyone placed under adjudication. If every ECI appeal succeeded, another 14.76 lakh would go, taking the total to nearly 70%. In 83 seats, the ECI is seeking to remove more voters than the judges did.</p>
+    <div class="keyline" style="margin-bottom:12px"><span><i style="background:var(--slate)"></i>Marked not eligible by judges</span><span><i style="background:var(--violet)"></i>Cleared, now appealed by the ECI</span><span><i style="background:var(--rest);outline:1px solid var(--rule)"></i>Cleared, no appeal</span></div>
+    <div id="stacks"></div>
+    <p class="cap">The ten seats with the most appeals. Bars show everyone placed under adjudication. The figure is the share who would be removed if all appeals succeed.</p>
+  </section>
+
+  <section class="more">
+    <h2>Every seat</h2>
+    <div class="tools">
+      <input id="tq" type="search" placeholder="Filter by seat or district" aria-label="Filter seats">
+      <select id="td" aria-label="Filter by district"><option value="">All districts</option></select>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr>
+          <th><button data-k="name">Seat</button></th>
+          <th><button data-k="dist">District</button></th>
+          <th><button data-k="app" aria-sort="descending">Appeals</button></th>
+          <th><button data-k="pa">Of cleared</button></th>
+          <th><button data-k="pr">Of all voters</button></th>
+          <th><button data-k="ne">Judges removed</button></th>
+          <th><button data-k="mi">Minority, seat</button></th>
+          <th><button data-k="dm">Muslim, district</button></th>
+          <th><button data-k="w">2026 winner</button></th>
+        </tr></thead>
+        <tbody id="tb"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="notes">
+    <p>Appeal records individually collected and verified, voter by voter, by the Civic Research Group and provided to The Wire. They cover 30,00,541 voters found eligible in adjudication across all 294 constituencies, as of 17 October 2026. In a September submission to the Supreme Court, the ECI reported 16,10,311 appeals against inclusion; the records count individual voters, not appeals.</p>
+  </div>
+</main>
+<script src="assets/data/seats.js"></script>
+<script src="assets/data/map.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
